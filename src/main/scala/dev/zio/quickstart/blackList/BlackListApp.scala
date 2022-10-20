@@ -24,28 +24,22 @@ object BlackListApp :
             case Right(u) => {
 
               val fileName = "C:\\Users\\15nk3\\Documents\\GitHub\\zio-quickstart-restful-webservice-master\\src\\main\\resources\\blackList.txt"
-              val res: String = "Success"
+              var res: String = "Success"
               val bufferedSource = scala.io.Source.fromFile(fileName)
 
               for (lines <- bufferedSource.getLines()) {
                 // do something with lines
                 if(u.src== lines || u.dst==lines ){
 
-                  solution = "Cancel"
-                  break
-
+                  res = "Cancel"
                 }
                 println(lines);
               }
               bufferedSource.close()
 
-
-
               ZIO.succeed(Response.text(res));
 
-
             }
-
 
         yield r
 
