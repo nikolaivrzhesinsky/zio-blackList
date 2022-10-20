@@ -3,9 +3,9 @@ package dev.zio.quickstart.users
 import java.util.UUID
 import zio.json.*
 
-//case class User(name: String, age: Int)
+case class User(name: String, age: Int)
 
-case class User(src:String,dst:String,amount:Int)
+//case class User(src:String,dst:String,amount:Int)
 
 object User:
   given JsonEncoder[User] =
